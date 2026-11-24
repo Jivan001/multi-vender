@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="CampusCart multi-vendor e-commerce SIP front-end demonstration">
+    <title> Multi-Vendor Store</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+        <a class="brand" href="#home" aria-label="CampusCart home">
+            <span>◈</span> CampusCart
+        </a>
+        <nav aria-label="Primary navigation">
+            <a href="#shop">Shop</a>
+            <a href="#vendor">Vendor desk</a>
+            <a href="#orders">Orders</a>
+            <a href="#writeup">SIP write-up</a>
+        </nav>
+        <button class="cart-trigger" id="openCart" type="button" aria-haspopup="dialog" aria-controls="cartPanel">
+            Cart <span id="cartCount">0</span>
+        </button>
+    </header>
+    <main id="main">
+        <section class="hero" id="home">
+            <div>
+                <p class="eyebrow">MCA SIP • FRONT-END DEMONSTRATION</p>
+                <h1>
+                    One marketplace.<br>
+                    <em>Many student vendors.</em>
+                </h1>
+                <p class="hero-copy">Browse useful products, manage a simple vendor catalogue, and follow a demo order
+                    from cart to invoice.</p>
+                <div class="hero-actions">
+                    <a class="button primary" href="#shop">Explore products</a>
+                    <a class="button ghost" href="#vendor">Open vendor desk</a>
+                </div>
+            </div>
+            <aside class="hero-card">
+                <span class="mini-label">Today’s campus picks</span>
+                <div class="hero-graphic">🛍️</div>
+                <strong>Made for quick demos</strong>
+                <p>Search, filter, cart, checkout, tracking and invoice—in one clean flow.</p>
+                <div class="stat-row">
+                    <span>
+                        <b id="productStat">0</b> products
+                    </span>
+                    <span>
+                        <b>3</b> vendors
+                    </span>
+                </div>
+            </aside>
+        </section>
+        <section class="notice" aria-label="Demo notice">
+            <strong>Demo boundary:</strong> Authentication, payments, vendor actions, stock and order status are
+            <mark>simulated in the browser</mark>. No real user accounts, payment gateway, server or database is used.
+        </section>
+        <section class="section" id="shop">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">CATALOGUE</p>
+                    <h2>Find what you need</h2>
+                </div>
+                <p id="resultCount" aria-live="polite"></p>
+            </div>
+            <div class="shop-layout">
+                <aside class="filters" aria-label="Product filters">
+                    <label for="search">
+                        Search products<input id="search" type="search" placeholder="e.g. notebook">
+                    </label>
+                    <label for="category">
+                        Category
+                        <select id="category">
+                            <option value="all">All categories</option>
+                            <option>Stationery</option>
+                            <option>Electronics</option>
+                            <option>Accessories</option>
+                        </select>
+                    </label>
+                    <label for="vendorFilter">
+                        Vendor
+                        <select id="vendorFilter">
+                            <option value="all">All vendors</option>
+                        </select>
+                    </label>
+                    <label for="sort">
+                        Sort
+                        <select id="sort">
+                            <option value="featured">Featured</option>
+                            <option value="low">Price: low to high</option>
+                            <option value="high">Price: high to low</option>
+                        </select>
+                    </label>
+                    <button class="text-button" id="clearFilters" type="button">Clear filters</button>
+                </aside>
+                <div class="product-grid" id="productGrid"></div>
+            </div>
+        </section>
+        <section class="section alt" id="vendor">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">VENDOR DESK</p>
+                    <h2>Manage a demo catalogue</h2>
+                </div>
+                <span class="demo-chip">SIMULATED VENDOR OPERATION</span>
+            </div>
+            <div class="vendor-layout">
+                <form class="vendor-form" id="productForm">
+                    <h3>Add a product</h3>
+                    <p>This changes only this browser’s local demo data.</p>
+                    <label>
+                        Product name<input required name="name" maxlength="45" placeholder="e.g. Canvas Tote">
+                    </label>
+                    <div class="form-row">
+                        <label>
+                            Price (₹)<input required name="price" type="number" min="1" step="1" placeholder="299">
+                        </label>
+                        <label>
+                            Category
+                            <select required name="category">
+                                <option>Stationery</option>
+                                <option>Electronics</option>
+                                <option>Accessories</option>
+                            </select>
+                        </label>
+                    </div>
+                    <label>
+                        Vendor<select required name="vendor" id="vendorSelect"></select>
+                    </label>
+                    <label>
+                        Product emoji<input required name="emoji" maxlength="2" value="🛍️" aria-label="Product emoji">
+                    </label>
+                    <button class="button primary" type="submit">Add to demo catalogue</button>
+                </form>
+                <div class="vendor-summary">
+                    <h3>Vendor overview</h3>
+                    <div id="vendorCards" class="vendor-cards"></div>
+                    <div class="tip">
+                        <strong>Viva point:</strong> In a production platform, this module would call protected backend
+                        APIs. Here it is deliberately client-only.
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section" id="orders">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">ORDER DESK</p>
+                    <h2>Track demo orders</h2>
+                </div>
+                <button class="text-button" id="resetDemo" type="button">Reset all demo data</button>
+            </div>
+            <div id="ordersList" class="orders-list"></div>
+        </section>
+        <section class="section alt" id="writeup">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">SIP PROJECT WRITE-UP</p>
+                    <h2>Multi-Vendor E-Commerce Platform</h2>
+                </div>
+                <button class="text-button print-hide" onclick="window.print()" type="button">Print / save PDF</button>
+            </div>
+            <article class="writeup">
+                <div class="writeup-intro">
+                    <p>
+                        <strong>Project type:</strong> MCA SIP front-end prototype
+                    </p>
+                    <p>
+                        <strong>Important:</strong> This is an educational <mark>HTML, CSS and JavaScript
+                            demonstration</mark>, not a deployable commercial marketplace.
+                    </p>
+                </div>
+                <div class="writeup-grid">
+                    <section>
+                        <h3>Abstract</h3>
+                        <p>CampusCart demonstrates the customer and vendor-facing journey of a multi-vendor online
+                            marketplace. Users can discover products, filter the catalogue, maintain a cart, place a
+                            simulated order, track its progress and view an invoice. Vendors can add products to a
+                            browser-stored catalogue.</p>
+                        <h3>Objectives</h3>
+                        <ul>
+                            <li>Present products from multiple vendors in one interface.</li>
+                            <li>Demonstrate search, filters, cart and order workflow.</li>
+                            <li>Show a simple vendor catalogue operation.</li>
+                            <li>Use responsive, accessible front-end design.</li>
+                        </ul>
+                        <h3>Scope</h3>
+                        <p>
+                            The prototype covers the visible flow: catalogue, vendor dashboard, cart, checkout, order
+                            tracking and invoice. Data persists with <mark>localStorage</mark> on one device.
+                        </p>
+                        <h3>Technologies</h3>
+                        <p>
+                            <mark>HTML5</mark> for structure, <mark>CSS3</mark> for responsive styling and <mark>vanilla
+                                JavaScript</mark> for interactions and localStorage persistence.
+                        </p>
+                    </section>
+                    <section>
+                        <h3>Modules</h3>
+                        <ol>
+                            <li>
+                                <strong>Catalogue:</strong> search, category/vendor filter and sorting.
+                            </li>
+                            <li>
+                                <strong>Cart:</strong> quantity controls and price calculation.
+                            </li>
+                            <li>
+                                <strong>Checkout:</strong> address form and simulated payment choice.
+                            </li>
+                            <li>
+                                <strong>Orders:</strong> status timeline and invoice modal.
+                            </li>
+                            <li>
+                                <strong>Vendor desk:</strong> browser-only product entry and totals.
+                            </li>
+                        </ol>
+                        <h3>Workflow</h3>
+                        <p>Browse → filter/search → add items → open cart → simulated checkout → order confirmation →
+                            order tracking → invoice. The vendor form updates the catalogue in the same browser.</p>
+                        <h3>Testing</h3>
+                        <p>Manual functional tests cover adding/removing cart items, quantity and total calculation,
+                            filters, form validation, checkout creation, order tracking, invoice display, reset and
+                            responsive layout.</p>
+                        <h3>Limitations</h3>
+                        <p>No real login, role control, inventory control, backend API, database, payment processing,
+                            shipment integration or secure invoice storage exists. localStorage is editable and
+                            unsuitable for sensitive data.</p>
+                        <h3>Conclusion</h3>
+                        <p>The project is a clear, explainable proof of concept for a multi-vendor marketplace
+                            interface. A real implementation requires a backend, authentication, validation, secure
+                            payment provider and database.</p>
+                    </section>
+                </div>
+                <section class="run-instructions">
+                    <h3>Run instructions</h3>
+                    <p>
+                        Open <code>index.html</code> in a modern browser. No installation, server or internet connection
+                        is required. Use <strong>Reset all demo data</strong> to restore the initial catalogue.
+                    </p>
+                </section>
+            </article>
+        </section>
+    </main>
+    <aside class="cart-panel" id="cartPanel" aria-label="Shopping cart" aria-hidden="true">
+        <div class="panel-head">
+            <h2>Your cart</h2>
+            <button class="icon-button" id="closeCart" type="button" aria-label="Close cart">×</button>
+        </div>
+        <div id="cartItems"></div>
+        <div class="cart-footer">
+            <div class="total-line">
+                <span>Total</span>
+                <strong id="cartTotal">₹0</strong>
+            </div>
+            <button class="button primary wide" id="checkoutButton" type="button">Continue to checkout</button>
+        </div>
+    </aside>
+    <div class="overlay" id="overlay"></div>
+    <dialog id="checkoutDialog">
+        <form method="dialog" id="checkoutForm">
+            <button class="dialog-close" value="cancel" aria-label="Close">×</button>
+            <p class="eyebrow">SIMULATED CHECKOUT</p>
+            <h2>Complete your demo order</h2>
+            <p class="dialog-note">No payment is collected or processed.</p>
+            <label>
+                Full name<input required name="customer" placeholder="Your name">
+            </label>
+            <label>
+                Delivery address<textarea required name="address" rows="3"
+                    placeholder="Hostel / street, city"></textarea>
+            </label>
+            <fieldset>
+                <legend>Demo payment method</legend>
+                <label>
+                    <input type="radio" name="payment" value="Demo UPI" checked>Demo UPI
+                </label>
+                <label>
+                    <input type="radio" name="payment" value="Cash on Delivery">Cash on Delivery
+                </label>
+            </fieldset>
+            <button class="button primary wide" type="submit">Place simulated order</button>
+        </form>
+    </dialog>
+    <dialog id="invoiceDialog">
+        <button class="dialog-close" id="closeInvoice" aria-label="Close invoice">×</button>
+        <div id="invoiceContent"></div>
+    </dialog>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <script src="app.js"></script>
+</body>
+
+</html>

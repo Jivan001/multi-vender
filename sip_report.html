@@ -1,0 +1,2418 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>CampusCart SIP Project Report</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 22mm 18mm
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        body {
+            font-family: "Times New Roman", serif;
+            color: #111;
+            line-height: 1.5;
+            margin: 0;
+            background: #ddd
+        }
+
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            background: #fff;
+            margin: 10mm auto;
+            padding: 22mm 18mm;
+            box-shadow: 0 1px 5px #777;
+            page-break-after: always
+        }
+
+        .cover {
+            text-align: center;
+            display: flex;
+            min-height: 253mm;
+            flex-direction: column;
+            justify-content: center;
+            border: 3px double #111;
+            padding: 25px
+        }
+
+        .cover h1 {
+            font-size: 29px;
+            text-transform: uppercase;
+            line-height: 1.25;
+            margin: 28px 0
+        }
+
+        .cover h2 {
+            font-size: 18px;
+            text-transform: uppercase;
+            margin: 10px 0
+        }
+
+        .cover p {
+            font-size: 16px
+        }
+
+        .placeholder {
+            color: #8a0000;
+            font-weight: bold;
+            background: #fff1f1;
+            padding: 0 3px
+        }
+
+        .note {
+            background: #fff7cc;
+            border-left: 4px solid #a77200;
+            padding: 11px;
+            font-family: Arial, sans-serif;
+            font-size: 12px
+        }
+
+        .center {
+            text-align: center
+        }
+
+        .right {
+            text-align: right
+        }
+
+        .signature {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+            margin-top: 70px;
+            text-align: center
+        }
+
+        h1 {
+            font-size: 22px;
+            text-align: center;
+            text-transform: uppercase;
+            margin: 0 0 20px
+        }
+
+        h2 {
+            font-size: 17px;
+            margin: 18px 0 8px
+        }
+
+        h3 {
+            font-size: 15px;
+            margin: 14px 0 6px
+        }
+
+        p {
+            margin: 0 0 9px;
+            text-align: justify
+        }
+
+        li {
+            margin-bottom: 5px;
+            text-align: justify
+        }
+
+        .toc {
+            columns: 2;
+            column-gap: 45px
+        }
+
+        .toc p {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px dotted #888
+        }
+
+        .table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 10px 0 18px
+        }
+
+        .table th,
+        .table td {
+            border: 1px solid #111;
+            padding: 7px;
+            vertical-align: top
+        }
+
+        .table th {
+            text-align: center;
+            background: #eee
+        }
+
+        .flow {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            font-weight: bold;
+            margin: 22px 0
+        }
+
+        .flow span {
+            display: inline-block;
+            border: 1px solid #222;
+            padding: 10px;
+            margin: 4px
+        }
+
+        .flow i {
+            font-style: normal;
+            font-size: 18px
+        }
+
+        .screen {
+            height: 115mm;
+            border: 1px dashed #555;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #555;
+            margin: 13px 0
+        }
+
+        .small {
+            font-size: 13px
+        }
+
+        .footer {
+            text-align: center;
+            font-size: 11px;
+            color: #555;
+            margin-top: 20px
+        }
+
+        @media print {
+            body {
+                background: #fff
+            }
+
+            .page {
+                margin: 0;
+                box-shadow: none;
+                width: auto;
+                min-height: 0
+            }
+
+            .note {
+                display: none
+            }
+        }
+
+        .screen {
+            height: 48mm;
+            border: 1px solid #bbb;
+            border-radius: 4px;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            text-align: center;
+            color: #555;
+            margin: 7px 0 10px;
+            padding: 4mm;
+            overflow: hidden;
+            break-inside: avoid
+        }
+
+        .screen img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            min-width: 0;
+            object-fit: contain;
+            object-position: center;
+            flex: 1 1 0
+        }
+
+        .screen.tall {
+            height: 74mm
+        }
+
+        @media print {
+            .screen {
+                break-inside: avoid
+            }
+        }
+
+        .placeholder {
+            color: #8a0000;
+            font-weight: bold;
+            background: #fff1f1;
+            padding: 0 3px
+        }
+
+        .page {
+            padding: 25.4mm 25.4mm 25.4mm 38.1mm
+        }
+
+        body {
+            font-size: 12pt;
+            line-height: 1.5
+        }
+
+        h1 {
+            font-size: 14pt;
+            font-weight: bold
+        }
+
+        h2,
+        h3 {
+            font-size: 14pt;
+            font-weight: bold
+        }
+
+        .page:nth-of-type(n+9):nth-of-type(-n+16)>h1:first-child {
+            font-size: 16pt
+        }
+
+        .cover-page {
+            color: #0c3264;
+            text-align: center
+        }
+
+        .cover-page .cover {
+            border: 0;
+            min-height: 0;
+            height: 100%;
+            padding: 0
+        }
+
+        .cover-page h1 {
+            font-size: 22pt;
+            color: #0b3061
+        }
+
+        .cover-page h2 {
+            font-size: 14pt;
+            color: #0c3265
+        }
+
+        .cover-page p {
+            text-align: center;
+        }
+
+        .cover-page .placeholder {
+            color: #123e78;
+            background: transparent
+        }
+
+        .front-page {
+            display: flex;
+            flex-direction: column
+        }
+
+        .front-page>h1 {
+            margin-bottom: 24pt
+        }
+
+        .front-page .front-content {
+            margin-top: 24pt
+        }
+
+        .front-page .signature {
+            margin-top: 55pt
+        }
+
+        .front-page p {
+            text-align: justify
+        }
+
+        .title-page {
+            color: #0b3162;
+            text-align: center
+        }
+
+        .title-page p {
+            text-align: center
+        }
+
+        .title-page .title-content {
+            margin: auto 0
+        }
+
+        .title-page h2 {
+            margin: 22pt 0
+        }
+
+        .logo-placeholder {
+            display: inline-block;
+            border: none;
+            color: #0b3469;
+            padding: 12px 26px;
+            margin: 10px auto;
+            font-size: 10pt
+        }
+
+        .certificate-space {
+            height: 145mm;
+            width: 140mm;
+            border: 1px dashed #888;
+            display:grid;
+            place-items: center;
+            text-align: center;
+            padding:0mm;
+            color: #555;
+            margin: 0%;
+        }
+
+        .signature {
+            gap: 35mm;
+            margin-top: 50pt
+        }
+
+        .toc {
+            columns: 1
+        }
+
+        .toc p {
+            break-inside: avoid
+        }
+
+        .screen {
+            height: 48mm;
+            border: 1px solid #bbb;
+            border-radius: 4px;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            text-align: center;
+            color: #555;
+            margin: 7px 0 10px;
+            padding: 4mm;
+            overflow: hidden;
+            break-inside: avoid
+        }
+
+        .screen img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            min-width: 0;
+            object-fit: contain;
+            object-position: center;
+            flex: 1 1 0
+        }
+
+        .screen.tall {
+            height: 74mm
+        }
+
+        @page {
+            size: A4 portrait;
+            margin: 25.4mm 25.4mm 25.4mm 38.1mm;
+
+            @bottom-center {
+                content: counter(page);
+                font-family: "Times New Roman", serif;
+                font-size: 12pt
+            }
+        }
+
+        @media print {
+            .page {
+                width: auto;
+                min-height: 246.2mm;
+                height: auto;
+                margin: 0;
+                padding: 0;
+                box-shadow: none;
+                page-break-after: always;
+                break-after: page
+            }
+
+            .cover-page .cover {
+                height: 246.2mm
+            }
+
+            .screen {
+                height: 48mm
+            }
+
+            .screen.tall {
+                height: 74mm
+            }
+        }
+
+        .source-code-page {
+            page-break-before: always;
+            break-before: page
+        }
+
+        .source-heading {
+            font-size: 14pt;
+            font-weight: bold;
+            margin: 16pt 0 8pt
+        }
+
+        .source-listing {
+            display: block;
+            white-space: pre-wrap;
+            overflow-wrap: anywhere;
+            word-break: normal;
+            font: 8pt/1.2 Consolas, "Courier New", monospace;
+            color: #111;
+            background: #f5f5f5;
+            border: 1px solid #bbb;
+            padding: 5mm;
+            margin: 0;
+            tab-size: 4;
+            break-inside: auto;
+            page-break-inside: auto
+        }
+
+        .source-listing code {
+            font: inherit
+        }
+
+        .source-code-page p {
+            font-size: 10pt;
+            margin-bottom: 8pt
+        }
+        
+    </style>
+</head>
+
+<body>
+    <section class="page cover-page">
+        <div class="cover">
+            <p><b>A</b></p>
+            <p><b>SUMMER INTERNSHIP PROJECT REPORT</b></p>
+            <p><b>ON</b></p>
+            <h1>CampusCart: A Front-End Prototype of a Multi-Vendor E-Commerce Platform</h1>
+            <p><b>SUBMITTED BY</b></p>
+            <p><b>CHANDDRA SEKHAR DAS</b></p>
+            <p>University Registration No. <b>2505107034</b></p>
+            <p>Under the Guidance of</p>
+            <p><b>Dr. S. K. Senapati</b></p>
+            <p>Technical Head, ARISYS PVT LTD</p>
+            <p><b>IN PARTIAL FULFILMENT OF THE REQUIREMENTS<br>FOR THE DEGREE OF</b></p>
+            <h2>MASTER OF COMPUTER APPLICATIONS</h2>
+            <p>at</p>
+            <p><b>COLLEGE OF IT AND MANAGEMENT EDUCATION</b></p>
+            <p>(A Constituent college of Biju Patnaik University of Technology)</p>
+            <p>Bhubaneswar-751010</p>
+            <div class="logo-placeholder"><img src="https://www.cime.ac.in/assets/image/logos/Logo.png" alt=""></div>
+            <p><b>November-2026</b></p>
+        </div>
+    </section>
+    <section class="page front-page title-page">
+        
+        <div class="title-content">
+            <p><b>A</b></p>
+            <p><b>SUMMER INTERNSHIP PROJECT REPORT</b></p>
+            <p><b>ON</b></p>
+            <h1>CampusCart: A Front-End Prototype of a Multi-Vendor E-Commerce Platform</h1>
+            <p><b>SUBMITTED BY</b></p>
+            <p><b>CHANDDRA SEKHAR DAS</b></p>
+            <p>University Registration No. <b>2505107034</b></p>
+            <p>Under the Guidance of</p>
+            <p><b>Dr. S. K. Senapati</b></p>
+            <p>Technical Head, ARISYS PVT LTD</p>
+            <p><b>IN PARTIAL FULFILMENT OF THE REQUIREMENTS<br>FOR THE DEGREE OF</b></p>
+            <h2>MASTER OF COMPUTER APPLICATIONS</h2>
+            <p>at</p>
+            <p><b>COLLEGE OF IT AND MANAGEMENT EDUCATION</b></p>
+            <p>(A Constituent college of Biju Patnaik University of Technology)</p>
+            <p>Bhubaneswar-751010</p>
+            <div class="logo-placeholder"><img src="https://www.cime.ac.in/assets/image/logos/Logo.png" alt=""></div>
+            <p><b>November-2026</b></p>
+        </div>
+        <div class="signature">
+            <div><b>Signature of External</b></div>
+            <div><b>Signature of HOD</b></div>
+        </div>
+    </section>
+    <section class="page front-page">
+        <h1>DECLARATION</h1>
+        <div class="front-content">
+            <p>I, <b>CHANDRA SEKHAR DAS</b>, the undersigned, solemnly declare that this project report is based on my own
+                work carried out during the course of my study under the supervision of <b>Dr. S. K. Senapati</b>. I
+                assert that the statements made and conclusions drawn are the outcome of my project work.</p>
+            <p>I further certify that the work contained in this report is original and has been done by me under the
+                guidance of my supervisor. The work has not been submitted to any other institution for any other
+                degree, diploma or certificate at this university or any other university in India or abroad, to the
+                best of my knowledge and belief.</p>
+            <p class="right" style="margin-top:35pt">Name: <b>CHANDRA SEKHAR DAS</b><br>University Registration No.:
+                <b>2505107034</b>
+            </p>
+            <div class="signature">
+                <div><b>Student Signature</b></div>
+                <div>Date:__________</div>
+            </div>
+        </div>
+    </section>
+    <section class="page front-page">
+        <h1>INTERNAL GUIDE CERTIFICATE</h1>
+        <div class="front-content">
+            <p>This is to certify that the project titled <b>“CampusCart: A Front-End Prototype of a Multi-Vendor
+                    E-Commerce Platform”</b> is the bona fide work carried out by <b>CHANDRA SEKHAR DAS</b>, a student of
+                MCA, <b>COLLEGE OF IT AND MANAGEMENT EDUCATION</b>, affiliated to <b>Biju Patnaik University of Technology</b>, during the academic year
+                <b>MCA 3rd</b> under my guidance, as per the guidelines prescribed by the university.
+            </p>
+            <div class="signature">
+                <div><b>Place:</b>_______________<br><br><b>Date:</b>________________</div>
+                <div><b>Signature of the Guide</b><br><br></div>
+            </div>
+        </div>
+    </section>
+    <section class="page front-page">
+        <h1>CERTIFICATE OF COMPLETION OF SIP</h1>
+        <div class="certificate-space">
+            <div class="screen tall">
+                <img src="my_certificate.png" alt="">
+               </p>
+            </div>
+        </div>
+    </section>
+   
+    <section class="page front-page">
+        <h1>ACKNOWLEDGEMENT</h1>
+        <div class="front-content">
+            <p>I express my sincere gratitude to my project guide, <b>Dr. S. K. Senapati</b>, for valuable guidance, comments
+                and suggestions throughout this project. I thank the faculty members of <b>MCA</b> and
+                <b>COLLEGE OF IT AND MANAGEMENT EDUCATION</b> for their support during the project period.
+            </p>
+            <p>I also thank everyone who provided assistance and encouragement during the planning, implementation and
+                documentation of this project.</p>
+            <p class="right" style="margin-top:45pt"><b>CHANDRA SEKHAR DAS</b><br>University Registration No.: 2505107034</p>
+        </div>
+    </section>
+    <section class="page front-page">
+        <h1>ABSTRACT</h1>
+        <div class="front-content">
+            <p>CampusCart is an educational front-end prototype of a multi-vendor e-commerce platform. It provides a
+                single marketplace where a user can browse products from multiple vendors, search and filter the
+                catalogue, add items to a cart, complete a simulated checkout, track a demo order and view a generated
+                invoice. A simple vendor desk permits product addition to the browser-stored catalogue.</p>
+            <p>The project is implemented using HTML5, CSS3 and vanilla JavaScript. Browser localStorage is used only
+                for demo persistence. The project has no server, database, real authentication, secure payment gateway,
+                inventory service or shipping integration. Its purpose is to demonstrate the visible workflow and
+                user-interface logic of a marketplace in a clear form suitable for an MCA SIP presentation.</p>
+            <p><b>Keywords:</b> Multi-vendor marketplace, e-commerce, front-end prototype, HTML, CSS, JavaScript,
+                localStorage.</p>
+            
+        </div>
+    </section>
+    <section class="page">
+        <h1>TABLE OF CONTENTS</h1>
+        <div class="toc">
+            <p><span>Cover Page</span><span>1</span></p>
+            <p><span>Title Page</span><span>2</span></p>
+            <p><span>Declaration by the Student</span><span>3</span></p>
+            <p><span>Certificate from the Internal Guide</span><span>4</span></p>
+            <p><span>Certificate of Completion of SIP</span><span>5</span></p>
+            <p><span>Acknowledgement</span><span>6</span></p>
+            <p><span>Abstract</span><span>7</span></p>
+            <p><span>Table of Contents</span><span>8</span></p>
+            <p><span>Chapter 1: Introduction</span><span>9</span></p>
+            <p><span>Chapter 2: Requirement Analysis</span><span>10</span></p>
+            <p><span>Chapter 3: System Design</span><span>11</span></p>
+            <p><span>Chapter 4: Implementation</span><span>12</span></p>
+            <p><span>Chapter 5: Testing</span><span>13</span></p>
+            <p><span>Chapter 6: Results and Screenshots</span><span>14</span></p>
+            <p><span>Chapter 7: Limitations and Future Work</span><span>16</span></p>
+            <p><span>Conclusion</span><span>16</span></p>
+            <p><span>References and Appendices</span><span>17</span></p>
+            <p><span>Appendix 1: CampusCart Source Code (HTML, CSS, JavaScript)</span><span>18</span></p>
+        </div>
+       
+    </section>
+    <section class="page">
+        <h1>Chapter 1: Introduction</h1>
+        <h2>1.1 Background</h2>
+        <p>Online marketplaces bring products from more than one seller into a single shopping experience. A customer
+            expects to discover items quickly, compare options, maintain a cart and receive a clear order summary.
+            Vendors need a way to present products. CampusCart models this idea as a small academic prototype for
+            student-oriented products.</p>
+        <h2>1.2 Problem Statement</h2>
+        <p>Building a full e-commerce marketplace is complex because it requires multiple roles, product data, cart
+            calculations, payments, orders and delivery updates. For a front-end SIP demonstration, the core challenge
+            is to present these connected user flows clearly without claiming backend facilities that are not
+            implemented.</p>
+        <h2>1.3 Proposed Solution</h2>
+        <p>CampusCart provides a responsive web interface containing a product catalogue, filtering and search, cart,
+            simulated checkout, order tracking, invoice view and a simulated vendor product-entry desk. Data changes
+            remain available in the same browser through localStorage.</p>
+        <h2>1.4 Objectives</h2>
+        <ol>
+            <li>To create a clear multi-vendor product catalogue.</li>
+            <li>To implement client-side product search, filter and sorting functions.</li>
+            <li>To implement cart quantity management and total calculation.</li>
+            <li>To demonstrate a simulated checkout, order tracking and invoice flow.</li>
+            <li>To demonstrate a local vendor catalogue operation.</li>
+            <li>To produce a responsive and accessible interface that is easy to explain in a viva.</li>
+        </ol>
+        <h2>1.5 Scope</h2>
+        <p>The scope is limited to front-end interaction. It covers a product catalogue, local cart, demo checkout,
+            order presentation, invoice display and a vendor form. It does not cover live user registration, login,
+            server APIs, payment collection, database storage, tax calculation or delivery-provider integration.</p>
+    </section>
+    <section class="page">
+        <h1>Chapter 2: Requirement Analysis</h1>
+        <h2>2.1 Functional Requirements</h2>
+        <table class="table">
+            <tr>
+                <th>ID</th>
+                <th>Requirement</th>
+            </tr>
+            <tr>
+                <td>FR-01</td>
+                <td>User can view products from different vendors.</td>
+            </tr>
+            <tr>
+                <td>FR-02</td>
+                <td>User can search, filter by category/vendor and sort products by price.</td>
+            </tr>
+            <tr>
+                <td>FR-03</td>
+                <td>User can add, remove and update product quantities in the cart.</td>
+            </tr>
+            <tr>
+                <td>FR-04</td>
+                <td>User can submit a simulated checkout form.</td>
+            </tr>
+            <tr>
+                <td>FR-05</td>
+                <td>System can show a demo order status and invoice.</td>
+            </tr>
+            <tr>
+                <td>FR-06</td>
+                <td>Vendor can add a product to the current browser catalogue.</td>
+            </tr>
+            <tr>
+                <td>FR-07</td>
+                <td>Product, cart and order data can persist locally in the browser.</td>
+            </tr>
+        </table>
+        <h2>2.2 Non-Functional Requirements</h2>
+        <table class="table">
+            <tr>
+                <th>Area</th>
+                <th>Requirement</th>
+            </tr>
+            <tr>
+                <td>Usability</td>
+                <td>Simple labels, visible demo notices and predictable navigation.</td>
+            </tr>
+            <tr>
+                <td>Responsive design</td>
+                <td>Layout adapts to desktop and mobile screens.</td>
+            </tr>
+            <tr>
+                <td>Accessibility</td>
+                <td>Semantic controls, readable contrast, labels and keyboard-operable buttons.</td>
+            </tr>
+            <tr>
+                <td>Performance</td>
+                <td>Fast local loading with no third-party libraries or network dependency.</td>
+            </tr>
+            <tr>
+                <td>Security boundary</td>
+                <td>No sensitive data should be entered; localStorage is not secure storage.</td>
+            </tr>
+        </table>
+        <h2>2.3 Feasibility</h2>
+        <p><b>Technical:</b> feasible with standard browser technologies. <b>Economic:</b> no license cost is required.
+            <b>Operational:</b> a browser is sufficient. The limitation is that it is a demonstration, not an
+            operational e-commerce service.
+        </p>
+    </section>
+    <section class="page">
+        <h1>Chapter 3: System Design</h1>
+        <h2>3.1 Technology Stack</h2>
+        <table class="table">
+            <tr>
+                <th>Technology</th>
+                <th>Purpose</th>
+            </tr>
+            <tr>
+                <td>HTML5</td>
+                <td>Page structure, forms, dialogs and semantic content.</td>
+            </tr>
+            <tr>
+                <td>CSS3</td>
+                <td>Responsive layout, typography, colour system and print styling.</td>
+            </tr>
+            <tr>
+                <td>JavaScript (ES6)</td>
+                <td>Rendering, filtering, cart logic, checkout, invoice and order status.</td>
+            </tr>
+            <tr>
+                <td>localStorage</td>
+                <td>Browser-only demo persistence for product, cart and order arrays.</td>
+            </tr>
+        </table>
+        <h2>3.2 Module Design</h2>
+        <table class="table">
+            <tr>
+                <th>Module</th>
+                <th>Responsibility</th>
+            </tr>
+            <tr>
+                <td>Catalogue</td>
+                <td>Displays products and applies user-selected filters and sorting.</td>
+            </tr>
+            <tr>
+                <td>Cart</td>
+                <td>Stores selected product identifiers, quantities and calculates totals.</td>
+            </tr>
+            <tr>
+                <td>Checkout</td>
+                <td>Collects demo customer details and creates a local order object.</td>
+            </tr>
+            <tr>
+                <td>Orders & Invoice</td>
+                <td>Shows demo progress and a readable order invoice.</td>
+            </tr>
+            <tr>
+                <td>Vendor Desk</td>
+                <td>Adds products to the browser-only catalogue and shows vendor totals.</td>
+            </tr>
+        </table>
+        <h2>3.3 Workflow</h2>
+        <div class="flow"><span>Browse Catalogue</span><i>→</i><span>Search / Filter</span><i>→</i><span>Add to
+                Cart</span><i>→</i><span>Simulated Checkout</span><i>→</i><span>Order / Invoice</span></div>
+        <p>The vendor workflow is: Vendor Desk → Fill Product Form → Add to local catalogue → Product appears in the
+            catalogue. There is no role validation because there is no backend authentication.</p>
+        <h2>3.4 Data Design</h2>
+        <p>Products are represented by id, name, price, category, vendor and emoji. Cart items contain id and quantity.
+            Orders store id, date, customer, address, simulated payment method, items and total. These JavaScript
+            objects are serialised to localStorage.</p>
+    </section>
+    <section class="page">
+        <h1>Chapter 4: Implementation</h1>
+        <h2>4.1 Application Structure</h2>
+        <table class="table">
+            <tr>
+                <th>File</th>
+                <th>Purpose</th>
+            </tr>
+            <tr>
+                <td>index.html</td>
+                <td>Interface sections: header, catalogue, vendor desk, orders, write-up and dialogs.</td>
+            </tr>
+            <tr>
+                <td>styles.css</td>
+                <td>Design tokens, responsive grid, dialogs, cart panel and print styles.</td>
+            </tr>
+            <tr>
+                <td>app.js</td>
+                <td>Product rendering, events, localStorage operations, calculations and demo orders.</td>
+            </tr>
+        </table>
+        <h2>4.2 Main Logic</h2>
+        <p>On startup, the application loads saved data from localStorage. If none is found, it uses an initial product
+            list. A rendering function applies search, category, vendor and price sorting before displaying cards. Cart
+            updates change the stored quantity and recalculate the total. Checkout converts cart content into a new
+            order and clears the cart. The order status changes visually after a short interval solely to demonstrate
+            tracking.</p>
+        <h2>4.3 Validation</h2>
+        <p>Required fields in product and checkout forms use browser validation. Price input accepts values above zero.
+            The checkout action is unavailable when the cart is empty. However, client-side validation is not security;
+            a real system must validate all inputs on the server.</p>
+        <h2>4.4 User Interface Choices</h2>
+        <p>The interface uses a restrained colour palette, high-contrast controls, grouped content and short labels. The
+            demo boundary is visible near the top of the application and repeated at checkout and invoice screens. This
+            prevents the user from mistaking the prototype for a live commercial platform.</p>
+    </section>
+    <section class="page">
+        <h1>Chapter 5: Testing</h1>
+        <p>Testing was performed manually in a modern browser. The following cases verify the main front-end behavior.
+        </p>
+        <table class="table small">
+            <tr>
+                <th>Test ID</th>
+                <th>Action</th>
+                <th>Expected Result</th>
+                <th>Status</th>
+            </tr>
+            <tr>
+                <td>TC-01</td>
+                <td>Open application</td>
+                <td>Initial products appear.</td>
+                <td>Pass</td>
+            </tr>
+            <tr>
+                <td>TC-02</td>
+                <td>Search a product name</td>
+                <td>Matching products only are shown.</td>
+                <td>Pass</td>
+            </tr>
+            <tr>
+                <td>TC-03</td>
+                <td>Filter by category/vendor</td>
+                <td>Catalogue updates to matching items.</td>
+                <td>Pass</td>
+            </tr>
+            <tr>
+                <td>TC-04</td>
+                <td>Add product to cart</td>
+                <td>Cart count and total increase.</td>
+                <td>Pass</td>
+            </tr>
+            <tr>
+                <td>TC-05</td>
+                <td>Change cart quantity</td>
+                <td>Quantity and total recalculate.</td>
+                <td>Pass</td>
+            </tr>
+            <tr>
+                <td>TC-06</td>
+                <td>Submit checkout form</td>
+                <td>Demo order is created and cart clears.</td>
+                <td>Pass</td>
+            </tr>
+            <tr>
+                <td>TC-07</td>
+                <td>View invoice</td>
+                <td>Order items, customer and total are displayed.</td>
+                <td>Pass</td>
+            </tr>
+            <tr>
+                <td>TC-08</td>
+                <td>Add vendor product</td>
+                <td>New product appears in catalogue.</td>
+                <td>Pass</td>
+            </tr>
+            <tr>
+                <td>TC-09</td>
+                <td>Reload page</td>
+                <td>Browser-local data remains available.</td>
+                <td>Pass</td>
+            </tr>
+            <tr>
+                <td>TC-10</td>
+                <td>Use Reset all demo data</td>
+                <td>Initial state is restored.</td>
+                <td>Pass</td>
+            </tr>
+        </table>
+        <h2>5.1 Test Conclusion</h2>
+        <p>The stated client-side flows work as expected. These test results do not prove payment security,
+            authentication, multi-user correctness or backend reliability because those systems are not part of the
+            project.</p>
+    </section>
+    <section class="page">
+        <h1>Chapter 6: Results and Screenshots</h1>
+        <p>The following screenshots show the application’s main screens. Images are fitted within consistent print-safe
+            frames without stretching.</p>
+        <h2>6.1 Home and Product Catalogue</h2>
+        <div class="screen"><img src="product.png" alt="CampusCart product view"><img src="catalog.png"
+                alt="CampusCart product catalogue"></div>
+        <h2>6.2 Cart and Simulated Checkout</h2>
+        <div class="screen"><img src="cart.png" alt="CampusCart shopping cart"></div>
+        <h2>6.3 Vendor Desk</h2>
+        <div class="screen"><img src="vendor.png" alt="CampusCart vendor desk"></div>
+    </section>
+    <section class="page">
+        <h1>Chapter 6: Results and Screenshots (continued)</h1>
+        <h2>6.4 Order Tracking and Invoice</h2>
+        <div class="screen tall"><img src="track_order%20(1).png" alt="CampusCart order tracking"><img
+                src="order_details.png" alt="CampusCart order details and invoice"></div>
+        <h2>6.5 Observed Result</h2>
+        <p>The prototype provides a connected, understandable flow from catalogue browsing to a simulated purchase
+            record. The data remains available after refresh on the same browser because localStorage is used. The
+            project meets its declared front-end objectives. It is intentionally limited to a single-browser demo and
+            should not be deployed as an actual marketplace.</p>
+    </section>
+    <section class="page">
+        <h1>Chapter 7: Limitations and Future Work</h1>
+        <h2>7.1 Limitations</h2>
+        <ul>
+            <li>No user account creation, login, password handling or role-based access control.</li>
+            <li>No server, REST API, database or shared multi-user data.</li>
+            <li>Payment options are visual simulations; no money is collected or processed.</li>
+            <li>Product stock and delivery status are not connected to real services.</li>
+            <li>localStorage can be edited or cleared by the user and is not safe for sensitive data.</li>
+            <li>Invoice is a demonstration view and not a legal, tax or payment document.</li>
+        </ul>
+        <h2>7.2 Future Enhancements</h2>
+        <ul>
+            <li>Develop a backend using a suitable server framework and database.</li>
+            <li>Add secure authentication with separate customer, vendor and administrator roles.</li>
+            <li>Store products, carts and orders in a database with server-side validation.</li>
+            <li>Integrate a compliant payment provider through secure server-side APIs.</li>
+            <li>Add inventory management, vendor approval, image upload and shipment integration.</li>
+            <li>Add formal unit, integration, security and accessibility testing.</li>
+        </ul>
+        <h1 style="margin-top:45px">Conclusion</h1>
+        <p>CampusCart demonstrates the core visible interactions of a multi-vendor e-commerce platform using HTML, CSS
+            and JavaScript. It successfully shows product discovery, filtering, cart management, simulated checkout,
+            order tracking, invoice display and local vendor catalogue operations. The work is valuable as a front-end
+            proof of concept. A full production solution would require the backend, security and integrations described
+            in the future-work section.</p>
+    </section>
+    <section class="page">
+        <h1>References</h1>
+        <ol>
+            <li>MDN Web Docs. “HTML: HyperText Markup Language.” https://developer.mozilla.org/en-US/docs/Web/HTML</li>
+            <li>MDN Web Docs. “CSS: Cascading Style Sheets.” https://developer.mozilla.org/en-US/docs/Web/CSS</li>
+            <li>MDN Web Docs. “JavaScript Guide.” https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide</li>
+            <li>MDN Web Docs. “Window: localStorage property.”
+                https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage</li>
+        </ol>
+        <h1 style="margin-top:50px">Appendix A: Run Instructions</h1>
+        <ol>
+            <li>Open the folder containing the project files.</li>
+            <li>Open <b>index.html</b> in a modern web browser.</li>
+            <li>Use the catalogue to add products to the cart.</li>
+            <li>Open the cart and select “Continue to checkout”.</li>
+            <li>Enter sample non-sensitive information and place a simulated order.</li>
+            <li>Open the Orders section to view tracking and invoice.</li>
+            <li>Use “Reset all demo data” before a fresh presentation, if required.</li>
+        </ol>
+        <h1 style="margin-top:40px">Appendix B: Viva Questions</h1>
+        <ol>
+            <li><b>Why localStorage?</b> It provides simple browser-side persistence for an offline front-end
+                demonstration.</li>
+            <li><b>Is payment real?</b> No. It is deliberately marked as a simulated front-end feature.</li>
+            <li><b>What is required for production?</b> Backend APIs, database, authentication, validation, security,
+                payment-provider integration and testing.</li>
+            <li><b>What makes this multi-vendor?</b> Products are associated with distinct vendor names and the
+                interface includes vendor-oriented catalogue entry.</li>
+        </ol>
+        
+    </section>
+    +<section class="page source-code-page">
+        <h1>Appendix 1: Complete Project Source Code</h1>
+        <h2 class="source-heading">HTML source — home.html</h2>
+        <p>Complete source listing from the project file <code>home.html</code>.</p>
+        <pre class="source-listing"><code>
+            &lt;!doctype html&gt;
+            &lt;html lang="en"&gt;
+            
+            &lt;head&gt;
+                &lt;meta charset="utf-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+                &lt;meta name="description" content="CampusCart multi-vendor e-commerce SIP front-end demonstration"&gt;
+                &lt;title&gt;CampusCart | Multi-Vendor Store&lt;/title&gt;
+                &lt;link rel="stylesheet" href="style.css"&gt;
+            &lt;/head&gt;
+            
+            &lt;body&gt;
+                &lt;a class="skip-link" href="#main"&gt;Skip to content&lt;/a&gt;
+                &lt;header class="site-header"&gt;
+                    &lt;a class="brand" href="#home" aria-label="CampusCart home"&gt;
+                        &lt;span&gt;◈&lt;/span&gt; CampusCart
+                    &lt;/a&gt;
+                    &lt;nav aria-label="Primary navigation"&gt;
+                        &lt;a href="#shop"&gt;Shop&lt;/a&gt;
+                        &lt;a href="#vendor"&gt;Vendor desk&lt;/a&gt;
+                        &lt;a href="#orders"&gt;Orders&lt;/a&gt;
+                        &lt;a href="#writeup"&gt;SIP write-up&lt;/a&gt;
+                    &lt;/nav&gt;
+                    &lt;button class="cart-trigger" id="openCart" type="button" aria-haspopup="dialog" aria-controls="cartPanel"&gt;
+                        Cart &lt;span id="cartCount"&gt;0&lt;/span&gt;
+                    &lt;/button&gt;
+                &lt;/header&gt;
+                &lt;main id="main"&gt;
+                    &lt;section class="hero" id="home"&gt;
+                        &lt;div&gt;
+                            &lt;p class="eyebrow"&gt;MCA SIP • FRONT-END DEMONSTRATION&lt;/p&gt;
+                            &lt;h1&gt;
+                                One marketplace.&lt;br&gt;
+                                &lt;em&gt;Many student vendors.&lt;/em&gt;
+                            &lt;/h1&gt;
+                            &lt;p class="hero-copy"&gt;Browse useful products, manage a simple vendor catalogue, and follow a demo order
+                                from cart to invoice.&lt;/p&gt;
+                            &lt;div class="hero-actions"&gt;
+                                &lt;a class="button primary" href="#shop"&gt;Explore products&lt;/a&gt;
+                                &lt;a class="button ghost" href="#vendor"&gt;Open vendor desk&lt;/a&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;aside class="hero-card"&gt;
+                            &lt;span class="mini-label"&gt;Today’s campus picks&lt;/span&gt;
+                            &lt;div class="hero-graphic"&gt;🛍️&lt;/div&gt;
+                            &lt;strong&gt;Made for quick demos&lt;/strong&gt;
+                            &lt;p&gt;Search, filter, cart, checkout, tracking and invoice—in one clean flow.&lt;/p&gt;
+                            &lt;div class="stat-row"&gt;
+                                &lt;span&gt;
+                                    &lt;b id="productStat"&gt;0&lt;/b&gt; products
+                                &lt;/span&gt;
+                                &lt;span&gt;
+                                    &lt;b&gt;3&lt;/b&gt; vendors
+                                &lt;/span&gt;
+                            &lt;/div&gt;
+                        &lt;/aside&gt;
+                    &lt;/section&gt;
+                    &lt;section class="notice" aria-label="Demo notice"&gt;
+                        &lt;strong&gt;Demo boundary:&lt;/strong&gt; Authentication, payments, vendor actions, stock and order status are
+                        &lt;mark&gt;simulated in the browser&lt;/mark&gt;. No real user accounts, payment gateway, server or database is used.
+                    &lt;/section&gt;
+                    &lt;section class="section" id="shop"&gt;
+                        &lt;div class="section-heading"&gt;
+                            &lt;div&gt;
+                                &lt;p class="eyebrow"&gt;CATALOGUE&lt;/p&gt;
+                                &lt;h2&gt;Find what you need&lt;/h2&gt;
+                            &lt;/div&gt;
+                            &lt;p id="resultCount" aria-live="polite"&gt;&lt;/p&gt;
+                        &lt;/div&gt;
+                        &lt;div class="shop-layout"&gt;
+                            &lt;aside class="filters" aria-label="Product filters"&gt;
+                                &lt;label for="search"&gt;
+                                    Search products&lt;input id="search" type="search" placeholder="e.g. notebook"&gt;
+                                &lt;/label&gt;
+                                &lt;label for="category"&gt;
+                                    Category
+                                    &lt;select id="category"&gt;
+                                        &lt;option value="all"&gt;All categories&lt;/option&gt;
+                                        &lt;option&gt;Stationery&lt;/option&gt;
+                                        &lt;option&gt;Electronics&lt;/option&gt;
+                                        &lt;option&gt;Accessories&lt;/option&gt;
+                                    &lt;/select&gt;
+                                &lt;/label&gt;
+                                &lt;label for="vendorFilter"&gt;
+                                    Vendor
+                                    &lt;select id="vendorFilter"&gt;
+                                        &lt;option value="all"&gt;All vendors&lt;/option&gt;
+                                    &lt;/select&gt;
+                                &lt;/label&gt;
+                                &lt;label for="sort"&gt;
+                                    Sort
+                                    &lt;select id="sort"&gt;
+                                        &lt;option value="featured"&gt;Featured&lt;/option&gt;
+                                        &lt;option value="low"&gt;Price: low to high&lt;/option&gt;
+                                        &lt;option value="high"&gt;Price: high to low&lt;/option&gt;
+                                    &lt;/select&gt;
+                                &lt;/label&gt;
+                                &lt;button class="text-button" id="clearFilters" type="button"&gt;Clear filters&lt;/button&gt;
+                            &lt;/aside&gt;
+                            &lt;div class="product-grid" id="productGrid"&gt;&lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/section&gt;
+                    &lt;section class="section alt" id="vendor"&gt;
+                        &lt;div class="section-heading"&gt;
+                            &lt;div&gt;
+                                &lt;p class="eyebrow"&gt;VENDOR DESK&lt;/p&gt;
+                                &lt;h2&gt;Manage a demo catalogue&lt;/h2&gt;
+                            &lt;/div&gt;
+                            &lt;span class="demo-chip"&gt;SIMULATED VENDOR OPERATION&lt;/span&gt;
+                        &lt;/div&gt;
+                        &lt;div class="vendor-layout"&gt;
+                            &lt;form class="vendor-form" id="productForm"&gt;
+                                &lt;h3&gt;Add a product&lt;/h3&gt;
+                                &lt;p&gt;This changes only this browser’s local demo data.&lt;/p&gt;
+                                &lt;label&gt;
+                                    Product name&lt;input required name="name" maxlength="45" placeholder="e.g. Canvas Tote"&gt;
+                                &lt;/label&gt;
+                                &lt;div class="form-row"&gt;
+                                    &lt;label&gt;
+                                        Price (₹)&lt;input required name="price" type="number" min="1" step="1" placeholder="299"&gt;
+                                    &lt;/label&gt;
+                                    &lt;label&gt;
+                                        Category
+                                        &lt;select required name="category"&gt;
+                                            &lt;option&gt;Stationery&lt;/option&gt;
+                                            &lt;option&gt;Electronics&lt;/option&gt;
+                                            &lt;option&gt;Accessories&lt;/option&gt;
+                                        &lt;/select&gt;
+                                    &lt;/label&gt;
+                                &lt;/div&gt;
+                                &lt;label&gt;
+                                    Vendor&lt;select required name="vendor" id="vendorSelect"&gt;&lt;/select&gt;
+                                &lt;/label&gt;
+                                &lt;label&gt;
+                                    Product emoji&lt;input required name="emoji" maxlength="2" value="🛍️" aria-label="Product emoji"&gt;
+                                &lt;/label&gt;
+                                &lt;button class="button primary" type="submit"&gt;Add to demo catalogue&lt;/button&gt;
+                            &lt;/form&gt;
+                            &lt;div class="vendor-summary"&gt;
+                                &lt;h3&gt;Vendor overview&lt;/h3&gt;
+                                &lt;div id="vendorCards" class="vendor-cards"&gt;&lt;/div&gt;
+                                &lt;div class="tip"&gt;
+                                    &lt;strong&gt;Viva point:&lt;/strong&gt; In a production platform, this module would call protected backend
+                                    APIs. Here it is deliberately client-only.
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/section&gt;
+                    &lt;section class="section" id="orders"&gt;
+                        &lt;div class="section-heading"&gt;
+                            &lt;div&gt;
+                                &lt;p class="eyebrow"&gt;ORDER DESK&lt;/p&gt;
+                                &lt;h2&gt;Track demo orders&lt;/h2&gt;
+                            &lt;/div&gt;
+                            &lt;button class="text-button" id="resetDemo" type="button"&gt;Reset all demo data&lt;/button&gt;
+                        &lt;/div&gt;
+                        &lt;div id="ordersList" class="orders-list"&gt;&lt;/div&gt;
+                    &lt;/section&gt;
+                    &lt;section class="section alt" id="writeup"&gt;
+                        &lt;div class="section-heading"&gt;
+                            &lt;div&gt;
+                                &lt;p class="eyebrow"&gt;SIP PROJECT WRITE-UP&lt;/p&gt;
+                                &lt;h2&gt;Multi-Vendor E-Commerce Platform&lt;/h2&gt;
+                            &lt;/div&gt;
+                            &lt;button class="text-button print-hide" onclick="window.print()" type="button"&gt;Print / save PDF&lt;/button&gt;
+                        &lt;/div&gt;
+                        &lt;article class="writeup"&gt;
+                            &lt;div class="writeup-intro"&gt;
+                                &lt;p&gt;
+                                    &lt;strong&gt;Project type:&lt;/strong&gt; MCA SIP front-end prototype
+                                &lt;/p&gt;
+                                &lt;p&gt;
+                                    &lt;strong&gt;Important:&lt;/strong&gt; This is an educational &lt;mark&gt;HTML, CSS and JavaScript
+                                        demonstration&lt;/mark&gt;, not a deployable commercial marketplace.
+                                &lt;/p&gt;
+                            &lt;/div&gt;
+                            &lt;div class="writeup-grid"&gt;
+                                &lt;section&gt;
+                                    &lt;h3&gt;Abstract&lt;/h3&gt;
+                                    &lt;p&gt;CampusCart demonstrates the customer and vendor-facing journey of a multi-vendor online
+                                        marketplace. Users can discover products, filter the catalogue, maintain a cart, place a
+                                        simulated order, track its progress and view an invoice. Vendors can add products to a
+                                        browser-stored catalogue.&lt;/p&gt;
+                                    &lt;h3&gt;Objectives&lt;/h3&gt;
+                                    &lt;ul&gt;
+                                        &lt;li&gt;Present products from multiple vendors in one interface.&lt;/li&gt;
+                                        &lt;li&gt;Demonstrate search, filters, cart and order workflow.&lt;/li&gt;
+                                        &lt;li&gt;Show a simple vendor catalogue operation.&lt;/li&gt;
+                                        &lt;li&gt;Use responsive, accessible front-end design.&lt;/li&gt;
+                                    &lt;/ul&gt;
+                                    &lt;h3&gt;Scope&lt;/h3&gt;
+                                    &lt;p&gt;
+                                        The prototype covers the visible flow: catalogue, vendor dashboard, cart, checkout, order
+                                        tracking and invoice. Data persists with &lt;mark&gt;localStorage&lt;/mark&gt; on one device.
+                                    &lt;/p&gt;
+                                    &lt;h3&gt;Technologies&lt;/h3&gt;
+                                    &lt;p&gt;
+                                        &lt;mark&gt;HTML5&lt;/mark&gt; for structure, &lt;mark&gt;CSS3&lt;/mark&gt; for responsive styling and &lt;mark&gt;vanilla
+                                            JavaScript&lt;/mark&gt; for interactions and localStorage persistence.
+                                    &lt;/p&gt;
+                                &lt;/section&gt;
+                                &lt;section&gt;
+                                    &lt;h3&gt;Modules&lt;/h3&gt;
+                                    &lt;ol&gt;
+                                        &lt;li&gt;
+                                            &lt;strong&gt;Catalogue:&lt;/strong&gt; search, category/vendor filter and sorting.
+                                        &lt;/li&gt;
+                                        &lt;li&gt;
+                                            &lt;strong&gt;Cart:&lt;/strong&gt; quantity controls and price calculation.
+                                        &lt;/li&gt;
+                                        &lt;li&gt;
+                                            &lt;strong&gt;Checkout:&lt;/strong&gt; address form and simulated payment choice.
+                                        &lt;/li&gt;
+                                        &lt;li&gt;
+                                            &lt;strong&gt;Orders:&lt;/strong&gt; status timeline and invoice modal.
+                                        &lt;/li&gt;
+                                        &lt;li&gt;
+                                            &lt;strong&gt;Vendor desk:&lt;/strong&gt; browser-only product entry and totals.
+                                        &lt;/li&gt;
+                                    &lt;/ol&gt;
+                                    &lt;h3&gt;Workflow&lt;/h3&gt;
+                                    &lt;p&gt;Browse → filter/search → add items → open cart → simulated checkout → order confirmation →
+                                        order tracking → invoice. The vendor form updates the catalogue in the same browser.&lt;/p&gt;
+                                    &lt;h3&gt;Testing&lt;/h3&gt;
+                                    &lt;p&gt;Manual functional tests cover adding/removing cart items, quantity and total calculation,
+                                        filters, form validation, checkout creation, order tracking, invoice display, reset and
+                                        responsive layout.&lt;/p&gt;
+                                    &lt;h3&gt;Limitations&lt;/h3&gt;
+                                    &lt;p&gt;No real login, role control, inventory control, backend API, database, payment processing,
+                                        shipment integration or secure invoice storage exists. localStorage is editable and
+                                        unsuitable for sensitive data.&lt;/p&gt;
+                                    &lt;h3&gt;Conclusion&lt;/h3&gt;
+                                    &lt;p&gt;The project is a clear, explainable proof of concept for a multi-vendor marketplace
+                                        interface. A real implementation requires a backend, authentication, validation, secure
+                                        payment provider and database.&lt;/p&gt;
+                                &lt;/section&gt;
+                            &lt;/div&gt;
+                            &lt;section class="run-instructions"&gt;
+                                &lt;h3&gt;Run instructions&lt;/h3&gt;
+                                &lt;p&gt;
+                                    Open &lt;code&gt;index.html&lt;/code&gt; in a modern browser. No installation, server or internet connection
+                                    is required. Use &lt;strong&gt;Reset all demo data&lt;/strong&gt; to restore the initial catalogue.
+                                &lt;/p&gt;
+                            &lt;/section&gt;
+                        &lt;/article&gt;
+                    &lt;/section&gt;
+                &lt;/main&gt;
+                &lt;aside class="cart-panel" id="cartPanel" aria-label="Shopping cart" aria-hidden="true"&gt;
+                    &lt;div class="panel-head"&gt;
+                        &lt;h2&gt;Your cart&lt;/h2&gt;
+                        &lt;button class="icon-button" id="closeCart" type="button" aria-label="Close cart"&gt;×&lt;/button&gt;
+                    &lt;/div&gt;
+                    &lt;div id="cartItems"&gt;&lt;/div&gt;
+                    &lt;div class="cart-footer"&gt;
+                        &lt;div class="total-line"&gt;
+                            &lt;span&gt;Total&lt;/span&gt;
+                            &lt;strong id="cartTotal"&gt;₹0&lt;/strong&gt;
+                        &lt;/div&gt;
+                        &lt;button class="button primary wide" id="checkoutButton" type="button"&gt;Continue to checkout&lt;/button&gt;
+                    &lt;/div&gt;
+                &lt;/aside&gt;
+                &lt;div class="overlay" id="overlay"&gt;&lt;/div&gt;
+                &lt;dialog id="checkoutDialog"&gt;
+                    &lt;form method="dialog" id="checkoutForm"&gt;
+                        &lt;button class="dialog-close" value="cancel" aria-label="Close"&gt;×&lt;/button&gt;
+                        &lt;p class="eyebrow"&gt;SIMULATED CHECKOUT&lt;/p&gt;
+                        &lt;h2&gt;Complete your demo order&lt;/h2&gt;
+                        &lt;p class="dialog-note"&gt;No payment is collected or processed.&lt;/p&gt;
+                        &lt;label&gt;
+                            Full name&lt;input required name="customer" placeholder="Your name"&gt;
+                        &lt;/label&gt;
+                        &lt;label&gt;
+                            Delivery address&lt;textarea required name="address" rows="3"
+                                placeholder="Hostel / street, city"&gt;&lt;/textarea&gt;
+                        &lt;/label&gt;
+                        &lt;fieldset&gt;
+                            &lt;legend&gt;Demo payment method&lt;/legend&gt;
+                            &lt;label&gt;
+                                &lt;input type="radio" name="payment" value="Demo UPI" checked&gt;Demo UPI
+                            &lt;/label&gt;
+                            &lt;label&gt;
+                                &lt;input type="radio" name="payment" value="Cash on Delivery"&gt;Cash on Delivery
+                            &lt;/label&gt;
+                        &lt;/fieldset&gt;
+                        &lt;button class="button primary wide" type="submit"&gt;Place simulated order&lt;/button&gt;
+                    &lt;/form&gt;
+                &lt;/dialog&gt;
+                &lt;dialog id="invoiceDialog"&gt;
+                    &lt;button class="dialog-close" id="closeInvoice" aria-label="Close invoice"&gt;×&lt;/button&gt;
+                    &lt;div id="invoiceContent"&gt;&lt;/div&gt;
+                &lt;/dialog&gt;
+                &lt;div id="toast" class="toast" role="status" aria-live="polite"&gt;&lt;/div&gt;
+                &lt;script src="app.js"&gt;&lt;/script&gt;
+            &lt;/body&gt;
+            
+            &lt;/html&gt;
+            
+</code></pre>
+    </section>
+    <section class="page source-code-page">
+        <h1>Appendix 1: Source Code (continued)</h1>
+        <h2 class="source-heading">CSS source — style.css</h2>
+        <p>Complete source listing from the project file <code>style.css</code>.</p>
+        <pre class="source-listing"><code>
+            :root {
+                --ink: #182226;
+                --muted: #617076;
+                --paper: #fffdf9;
+                --soft: #f4f0e7;
+                --line: #e3ddd2;
+                --accent: #e8663a;
+                --deep: #143d45;
+                --lime: #dce87a;
+                --shadow: 0 14px 35px #17232214
+            }
+            
+            * {
+                box-sizing: border-box
+            }
+            
+            html {
+                scroll-behavior: smooth
+            }
+            
+            body {
+                margin: 0;
+                background: var(--paper);
+                color: var(--ink);
+                font: 16px/1.55 Arial, sans-serif
+            }
+            
+            h1,
+            h2,
+            h3,
+            p {
+                margin-top: 0
+            }
+            
+            h1,
+            h2,
+            h3,
+            .brand {
+                font-family: Georgia, serif;
+                line-height: 1.08
+            }
+            
+            h1 {
+                font-size: clamp(2.6rem, 6vw, 5.5rem);
+                letter-spacing: -.05em;
+                margin-bottom: 1.2rem
+            }
+            
+            h2 {
+                font-size: clamp(1.9rem, 3vw, 3rem);
+                letter-spacing: -.04em;
+                margin-bottom: .3rem
+            }
+            
+            h3 {
+                font-size: 1.25rem
+            }
+            
+            .skip-link {
+                position: absolute;
+                left: -999px
+            }
+            
+            .skip-link:focus {
+                left: 1rem;
+                top: 1rem;
+                z-index: 20;
+                background: #fff;
+                padding: .6rem
+            }
+            
+            .site-header {
+                height: 76px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 0 max(4vw, 24px);
+                border-bottom: 1px solid var(--line);
+                position: sticky;
+                top: 0;
+                background: #fffdf9eF;
+                backdrop-filter: blur(10px);
+                z-index: 5
+            }
+            
+            .brand {
+                font-size: 1.42rem;
+                font-weight: bold;
+                text-decoration: none;
+                color: var(--deep)
+            }
+            
+            .brand span {
+                color: var(--accent)
+            }
+            
+            nav {
+                display: flex;
+                gap: 22px
+            }
+            
+            nav a {
+                color: var(--ink);
+                text-decoration: none;
+                font-size: .9rem
+            }
+            
+            nav a:hover,
+            .text-button:hover {
+                color: var(--accent)
+            }
+            
+            button,
+            .button,
+            select,
+            input,
+            textarea {
+                font: inherit
+            }
+            
+            .cart-trigger,
+            .button {
+                border: 0;
+                border-radius: 999px;
+                padding: .72rem 1.1rem;
+                cursor: pointer;
+                text-decoration: none;
+                font-weight: bold
+            }
+            
+            .cart-trigger {
+                background: var(--deep);
+                color: white
+            }
+            
+            .cart-trigger span {
+                display: inline-grid;
+                place-items: center;
+                min-width: 20px;
+                height: 20px;
+                background: var(--lime);
+                color: var(--ink);
+                border-radius: 50%;
+                font-size: .75rem;
+                margin-left: .3rem
+            }
+            
+            .hero {
+                display: grid;
+                grid-template-columns: 1.3fr .7fr;
+                gap: clamp(30px, 8vw, 100px);
+                padding: clamp(55px, 9vw, 120px) max(4vw, 24px);
+                max-width: 1350px;
+                margin: auto;
+                align-items: center
+            }
+            
+            .eyebrow {
+                font-size: .72rem;
+                letter-spacing: .14em;
+                font-weight: bold;
+                color: var(--accent)
+            }
+            
+            em {
+                color: var(--accent);
+                font-style: normal
+            }
+            
+            .hero-copy {
+                max-width: 540px;
+                font-size: 1.12rem;
+                color: var(--muted)
+            }
+            
+            .hero-actions {
+                display: flex;
+                gap: 12px;
+                margin-top: 28px
+            }
+            
+            .primary {
+                background: var(--accent);
+                color: #fff
+            }
+            
+            .primary:hover {
+                background: #c9512c
+            }
+            
+            .ghost {
+                border: 1px solid var(--ink);
+                color: var(--ink)
+            }
+            
+            .hero-card {
+                background: var(--deep);
+                color: white;
+                border-radius: 22px;
+                padding: 30px;
+                box-shadow: var(--shadow);
+                min-height: 315px
+            }
+            
+            .hero-card p {
+                color: #d7e5e3
+            }
+            
+            .mini-label,
+            .demo-chip {
+                font-size: .7rem;
+                letter-spacing: .08em;
+                font-weight: bold
+            }
+            
+            .hero-graphic {
+                font-size: 5rem;
+                margin: 20px 0
+            }
+            
+            .stat-row {
+                display: flex;
+                gap: 16px;
+                border-top: 1px solid #ffffff30;
+                padding-top: 16px
+            }
+            
+            .stat-row span {
+                font-size: .8rem
+            }
+            
+            .stat-row b {
+                display: block;
+                font-size: 1.4rem;
+                color: var(--lime)
+            }
+            
+            .notice {
+                max-width: 1100px;
+                margin: 0 auto 65px;
+                background: #fff2dc;
+                border-left: 4px solid var(--accent);
+                padding: 15px 20px;
+                color: #5a3b22
+            }
+            
+            .section {
+                padding: 80px max(4vw, 24px);
+                max-width: 1350px;
+                margin: auto
+            }
+            
+            .alt {
+                max-width: none;
+                background: var(--soft)
+            }
+            
+            .alt&gt;* {
+                max-width: 1270px;
+                margin-left: auto;
+                margin-right: auto
+            }
+            
+            .section-heading {
+                display: flex;
+                align-items: end;
+                justify-content: space-between;
+                gap: 20px;
+                margin-bottom: 32px
+            }
+            
+            .section-heading&gt;p {
+                color: var(--muted)
+            }
+            
+            .demo-chip {
+                padding: .45rem .65rem;
+                background: #d9e9e4;
+                color: var(--deep);
+                border-radius: 6px
+            }
+            
+            .shop-layout {
+                display: grid;
+                grid-template-columns: 230px 1fr;
+                gap: 30px
+            }
+            
+            .filters {
+                height: max-content;
+                border: 1px solid var(--line);
+                padding: 18px;
+                border-radius: 12px;
+                position: sticky;
+                top: 92px
+            }
+            
+            .filters label,
+            .vendor-form label,
+            dialog label {
+                font-size: .8rem;
+                font-weight: bold;
+                display: block;
+                margin-bottom: 15px
+            }
+            
+            .filters input,
+            .filters select,
+            .vendor-form input,
+            .vendor-form select,
+            dialog input,
+            dialog textarea {
+                width: 100%;
+                margin-top: 5px;
+                border: 1px solid var(--line);
+                border-radius: 7px;
+                padding: .68rem;
+                background: #fff;
+                color: var(--ink)
+            }
+            
+            .text-button {
+                border: 0;
+                background: none;
+                color: var(--deep);
+                font-weight: bold;
+                cursor: pointer;
+                padding: 0
+            }
+            
+            .product-grid {
+                display: grid;
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                gap: 18px
+            }
+            
+            .product-card {
+                border: 1px solid var(--line);
+                border-radius: 14px;
+                overflow: hidden;
+                background: #fff;
+                display: flex;
+                flex-direction: column;
+                transition: .2s
+            }
+            
+            .product-card:hover {
+                transform: translateY(-3px);
+                box-shadow: var(--shadow)
+            }
+            
+            .product-visual {
+                height: 125px;
+                display: grid;
+                place-items: center;
+                font-size: 3.5rem;
+                background: linear-gradient(135deg, #edf1d9, #fae6d8)
+            }
+            
+            .product-content {
+                padding: 16px;
+                display: flex;
+                flex-direction: column;
+                flex: 1
+            }
+            
+            .pill {
+                font-size: .68rem;
+                color: var(--deep);
+                font-weight: bold
+            }
+            
+            .product-card h3 {
+                margin: .55rem 0;
+                font-size: 1.2rem
+            }
+            
+            .vendor-name {
+                color: var(--muted);
+                font-size: .8rem;
+                margin-bottom: 16px
+            }
+            
+            .price-row {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-top: auto
+            }
+            
+            .price {
+                font-weight: bold;
+                font-size: 1.1rem
+            }
+            
+            .add-button {
+                border: 1px solid var(--deep);
+                background: white;
+                color: var(--deep);
+                border-radius: 6px;
+                padding: .4rem .6rem;
+                cursor: pointer;
+                font-weight: bold
+            }
+            
+            .add-button:hover {
+                background: var(--deep);
+                color: white
+            }
+            
+            .vendor-layout {
+                display: grid;
+                grid-template-columns: 400px 1fr;
+                gap: 40px
+            }
+            
+            .vendor-form,
+            .vendor-summary {
+                background: #fff;
+                border: 1px solid var(--line);
+                border-radius: 14px;
+                padding: 24px
+            }
+            
+            .vendor-form p {
+                font-size: .85rem;
+                color: var(--muted)
+            }
+            
+            .form-row {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 12px
+            }
+            
+            .vendor-cards {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 12px
+            }
+            
+            .vendor-card {
+                background: #eff3ed;
+                padding: 15px;
+                border-radius: 10px
+            }
+            
+            .vendor-card span {
+                font-size: .75rem;
+                color: var(--muted)
+            }
+            
+            .vendor-card b {
+                display: block;
+                font-size: 1.8rem;
+                color: var(--deep);
+                margin: .2rem 0
+            }
+            
+            .tip {
+                margin-top: 20px;
+                background: #fff2dc;
+                padding: 14px;
+                border-radius: 8px;
+                font-size: .88rem
+            }
+            
+            .orders-list {
+                display: grid;
+                gap: 14px
+            }
+            
+            .empty-state {
+                padding: 30px;
+                border: 1px dashed var(--line);
+                color: var(--muted);
+                text-align: center
+            }
+            
+            .order-card {
+                background: #fff;
+                border: 1px solid var(--line);
+                border-radius: 12px;
+                padding: 20px;
+                display: grid;
+                grid-template-columns: 1fr auto;
+                gap: 16px
+            }
+            
+            .order-meta {
+                font-size: .85rem;
+                color: var(--muted)
+            }
+            
+            .status-steps {
+                display: flex;
+                gap: 5px;
+                margin-top: 15px
+            }
+            
+            .step {
+                height: 7px;
+                flex: 1;
+                background: #e4e4e0;
+                border-radius: 9px
+            }
+            
+            .step.active {
+                background: var(--accent)
+            }
+            
+            .order-actions {
+                display: flex;
+                gap: 14px;
+                align-items: center
+            }
+            
+            .writeup {
+                background: #fff;
+                border: 1px solid var(--line);
+                border-radius: 14px;
+                padding: clamp(20px, 4vw, 45px)
+            }
+            
+            .writeup-intro {
+                border-left: 4px solid var(--accent);
+                padding-left: 17px;
+                margin-bottom: 26px
+            }
+            
+            .writeup-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 42px
+            }
+            
+            .writeup h3 {
+                margin-top: 1.6rem
+            }
+            
+            .writeup p,
+            .writeup li {
+                color: #354348
+            }
+            
+            .run-instructions {
+                background: var(--deep);
+                color: white;
+                padding: 20px;
+                border-radius: 10px;
+                margin-top: 20px
+            }
+            
+            .run-instructions p {
+                color: #e2eeec;
+                margin-bottom: 0
+            }
+            
+            mark {
+                background: var(--lime);
+                padding: 0 .18em
+            }
+            
+            .cart-panel {
+                position: fixed;
+                right: 0;
+                top: 0;
+                height: 100dvh;
+                width: min(410px, 100%);
+                background: #fff;
+                z-index: 10;
+                transform: translateX(105%);
+                transition: .25s;
+                padding: 22px;
+                display: flex;
+                flex-direction: column;
+                box-shadow: var(--shadow)
+            }
+            
+            .cart-panel.open {
+                transform: none
+            }
+            
+            .panel-head {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                border-bottom: 1px solid var(--line)
+            }
+            
+            .icon-button,
+            .dialog-close {
+                border: 0;
+                background: none;
+                font-size: 2rem;
+                cursor: pointer
+            }
+            
+            .overlay {
+                display: none;
+                position: fixed;
+                inset: 0;
+                background: #122b2b66;
+                z-index: 9
+            }
+            
+            .overlay.open {
+                display: block
+            }
+            
+            .cart-item {
+                display: grid;
+                grid-template-columns: 50px 1fr auto;
+                gap: 10px;
+                padding: 14px 0;
+                border-bottom: 1px solid var(--line);
+                align-items: center
+            }
+            
+            .cart-icon {
+                font-size: 1.8rem
+            }
+            
+            .cart-item small {
+                color: var(--muted)
+            }
+            
+            .quantity {
+                display: flex;
+                gap: 8px;
+                align-items: center;
+                margin-top: 5px
+            }
+            
+            .quantity button {
+                width: 22px;
+                height: 22px;
+                border: 1px solid var(--line);
+                background: #fff;
+                border-radius: 4px;
+                cursor: pointer
+            }
+            
+            .cart-footer {
+                margin-top: auto;
+                border-top: 1px solid var(--line);
+                padding-top: 18px
+            }
+            
+            .total-line {
+                display: flex;
+                justify-content: space-between;
+                font-size: 1.2rem;
+                margin-bottom: 15px
+            }
+            
+            .wide {
+                width: 100%
+            }
+            
+            dialog {
+                max-width: 470px;
+                width: calc(100% - 32px);
+                border: 0;
+                border-radius: 14px;
+                padding: 28px;
+                box-shadow: var(--shadow)
+            }
+            
+            dialog::backdrop {
+                background: #122b2b77
+            }
+            
+            .dialog-close {
+                float: right;
+                margin: -10px -8px 0 0
+            }
+            
+            dialog fieldset {
+                border: 0;
+                padding: 0;
+                margin: 0 0 18px
+            }
+            
+            dialog fieldset label {
+                display: inline-block;
+                margin-right: 15px;
+                font-weight: normal
+            }
+            
+            .dialog-note {
+                background: #fff2dc;
+                padding: 10px;
+                font-size: .85rem
+            }
+            
+            .invoice-title {
+                border-bottom: 2px solid var(--ink);
+                padding-bottom: 13px
+            }
+            
+            .invoice-lines {
+                width: 100%;
+                border-collapse: collapse;
+                margin: 18px 0
+            }
+            
+            .invoice-lines td,
+            .invoice-lines th {
+                padding: 8px;
+                border-bottom: 1px solid var(--line);
+                text-align: left
+            }
+            
+            .invoice-total {
+                text-align: right;
+                font-size: 1.2rem
+            }
+            
+            .toast {
+                position: fixed;
+                left: 50%;
+                bottom: 25px;
+                transform: translate(-50%, 110px);
+                background: var(--deep);
+                color: white;
+                padding: 12px 18px;
+                border-radius: 8px;
+                transition: .25s;
+                z-index: 20
+            }
+            
+            .toast.show {
+                transform: translate(-50%, 0)
+            }
+            
+            @media(max-width: 850px) {
+                nav {
+                    display: none
+                }
+            
+                .hero,
+                .vendor-layout {
+                    grid-template-columns: 1fr
+                }
+            
+                .hero-card {
+                    min-height: auto
+                }
+            
+                .shop-layout {
+                    grid-template-columns: 1fr
+                }
+            
+                .filters {
+                    position: static;
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    gap: 0 12px
+                }
+            
+                .filters .text-button {
+                    align-self: center
+                }
+            
+                .product-grid {
+                    grid-template-columns: repeat(2, 1fr)
+                }
+            
+                .vendor-cards {
+                    grid-template-columns: 1fr 1fr
+                }
+            
+                .writeup-grid {
+                    grid-template-columns: 1fr
+                }
+            
+                .section-heading {
+                    align-items: start;
+                    flex-direction: column
+                }
+            
+                .order-card {
+                    grid-template-columns: 1fr
+                }
+            }
+            
+            @media(max-width: 500px) {
+                .site-header {
+                    height: 64px
+                }
+            
+                .hero,
+                .section {
+                    padding-left: 18px;
+                    padding-right: 18px
+                }
+            
+                .product-grid {
+                    grid-template-columns: 1fr
+                }
+            
+                .filters {
+                    grid-template-columns: 1fr
+                }
+            
+                .hero-actions {
+                    flex-direction: column;
+                    align-items: stretch;
+                    text-align: center
+                }
+            
+                .vendor-cards {
+                    grid-template-columns: 1fr
+                }
+            
+                .form-row {
+                    grid-template-columns: 1fr
+                }
+            }
+            
+            @media print {
+            
+                .site-header,
+                .hero,
+                .notice,
+                .filters,
+                .cart-panel,
+                .overlay,
+                .print-hide,
+                #orders,
+                .vendor-layout {
+                    display: none !important
+                }
+            
+                .section {
+                    padding: 20px
+                }
+            
+                .alt {
+                    background: #fff
+                }
+            
+                .writeup {
+                    border: 0
+                }
+            
+                .writeup-grid {
+                    gap: 20px
+                }
+            }
+            
+</code></pre>
+    </section>
+    <section class="page source-code-page">
+        <h1>Appendix 1: Source Code (continued)</h1>
+        <h2 class="source-heading">JavaScript source — app.js</h2>
+        <p>Complete source listing from the project file <code>app.js</code>.</p>
+        <pre class="source-listing"><code>
+            const initialProducts = [{
+                id: 'p1',
+                name: 'Minimal Notebook',
+                price: 129,
+                category: 'Stationery',
+                vendor: 'Paper Plane',
+                emoji: '📓'
+            }, {
+                id: 'p2',
+                name: 'Focus Desk Lamp',
+                price: 899,
+                category: 'Electronics',
+                vendor: 'Tech Corner',
+                emoji: '💡'
+            }, {
+                id: 'p3',
+                name: 'Canvas Tote Bag',
+                price: 349,
+                category: 'Accessories',
+                vendor: 'Craft Circle',
+                emoji: '👜'
+            }, {
+                id: 'p4',
+                name: 'Gel Pen Set',
+                price: 179,
+                category: 'Stationery',
+                vendor: 'Paper Plane',
+                emoji: '🖊️'
+            }, {
+                id: 'p5',
+                name: 'Wireless Mouse',
+                price: 649,
+                category: 'Electronics',
+                vendor: 'Tech Corner',
+                emoji: '🖱️'
+            }, {
+                id: 'p6',
+                name: 'Laptop Sleeve',
+                price: 599,
+                category: 'Accessories',
+                vendor: 'Craft Circle',
+                emoji: '💻'
+            }];
+            const $ = s =&gt; document.querySelector(s);
+            const money = n =&gt; `₹${Number(n).toLocaleString('en-IN')}`;
+            let products = JSON.parse(localStorage.getItem('cc-products') || 'null') || initialProducts;
+            let cart = JSON.parse(localStorage.getItem('cc-cart') || '[]');
+            let orders = JSON.parse(localStorage.getItem('cc-orders') || '[]');
+            function save() {
+                localStorage.setItem('cc-products', JSON.stringify(products));
+                localStorage.setItem('cc-cart', JSON.stringify(cart));
+                localStorage.setItem('cc-orders', JSON.stringify(orders))
+            }
+            function vendors() {
+                return [...new Set(products.map(p =&gt; p.vendor))]
+            }
+            function populateVendors() {
+                const options = vendors().map(v =&gt; `&lt;option&gt;${v}&lt;/option&gt;`).join('');
+                $('#vendorFilter').innerHTML = '&lt;option value="all"&gt;All vendors&lt;/option&gt;' + options;
+                $('#vendorSelect').innerHTML = options
+            }
+            function renderProducts() {
+                let list = [...products]
+                  , q = $('#search').value.trim().toLowerCase()
+                  , cat = $('#category').value
+                  , vendor = $('#vendorFilter').value
+                  , sort = $('#sort').value;
+                if (q)
+                    list = list.filter(p =&gt; `${p.name} ${p.vendor} ${p.category}`.toLowerCase().includes(q));
+                if (cat !== 'all')
+                    list = list.filter(p =&gt; p.category === cat);
+                if (vendor !== 'all')
+                    list = list.filter(p =&gt; p.vendor === vendor);
+                if (sort === 'low')
+                    list.sort( (a, b) =&gt; a.price - b.price);
+                if (sort === 'high')
+                    list.sort( (a, b) =&gt; b.price - a.price);
+                $('#resultCount').textContent = `${list.length} product${list.length === 1 ? '' : 's'} shown`;
+                $(' #productStat'.trim()).textContent = products.length;
+                $('#productGrid').innerHTML = list.length ? list.map(p =&gt; `&lt;article class="product-card"&gt;&lt;div class="product-visual"&gt;${p.emoji}&lt;/div&gt;&lt;div class="product-content"&gt;&lt;span class="pill"&gt;${p.category}&lt;/span&gt;&lt;h3&gt;${p.name}&lt;/h3&gt;&lt;p class="vendor-name"&gt;Sold by ${p.vendor}&lt;/p&gt;&lt;div class="price-row"&gt;&lt;span class="price"&gt;${money(p.price)}&lt;/span&gt;&lt;button class="add-button" data-add="${p.id}" type="button"&gt;Add&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;&lt;/article&gt;`).join('') : '&lt;div class="empty-state"&gt;No matching products. Try clearing a filter.&lt;/div&gt;'
+            }
+            function renderCart() {
+                const detailed = cart.map(i =&gt; ({
+                    ...products.find(p =&gt; p.id === i.id),
+                    qty: i.qty
+                })).filter(i =&gt; i.id);
+                const total = detailed.reduce( (s, i) =&gt; s + i.price * i.qty, 0);
+                $('#cartCount').textContent = cart.reduce( (s, i) =&gt; s + i.qty, 0);
+                $('#cartTotal').textContent = money(total);
+                $('#cartItems').innerHTML = detailed.length ? detailed.map(i =&gt; `&lt;div class="cart-item"&gt;&lt;div class="cart-icon"&gt;${i.emoji}&lt;/div&gt;&lt;div&gt;&lt;strong&gt;${i.name}&lt;/strong&gt;&lt;small&gt;${money(i.price)} each&lt;/small&gt;&lt;div class="quantity"&gt;&lt;button data-qty="-1" data-id="${i.id}" aria-label="Decrease ${i.name}"&gt;−&lt;/button&gt;&lt;span&gt;${i.qty}&lt;/span&gt;&lt;button data-qty="1" data-id="${i.id}" aria-label="Increase ${i.name}"&gt;+&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;&lt;strong&gt;${money(i.price * i.qty)}&lt;/strong&gt;&lt;/div&gt;`).join('') : '&lt;div class="empty-state"&gt;Your cart is empty. Add a product to begin.&lt;/div&gt;';
+                $('#checkoutButton').disabled = !detailed.length;
+                save()
+            }
+            function renderVendors() {
+                const cards = vendors().map(v =&gt; {
+                    const items = products.filter(p =&gt; p.vendor === v)
+                      , value = items.reduce( (s, p) =&gt; s + p.price, 0);
+                    return `&lt;div class="vendor-card"&gt;&lt;span&gt;${v}&lt;/span&gt;&lt;b&gt;${items.length}&lt;/b&gt;&lt;span&gt;products · ${money(value)} listed&lt;/span&gt;&lt;/div&gt;`
+                }
+                ).join('');
+                $('#vendorCards').innerHTML = cards
+            }
+            function status(order) {
+                return Math.min(3, Math.floor((Date.now() - order.created) / 4500))
+            }
+            function renderOrders() {
+                if (!orders.length) {
+                    $('#ordersList').innerHTML = '&lt;div class="empty-state"&gt;No demo orders yet. Checkout an item to see tracking and invoice features.&lt;/div&gt;';
+                    return
+                }
+                $('#ordersList').innerHTML = orders.map(o =&gt; {
+                    let st = status(o)
+                      , labels = ['Order placed', 'Packed', 'Out for delivery', 'Delivered'];
+                    return `&lt;article class="order-card"&gt;&lt;div&gt;&lt;strong&gt;${o.id}&lt;/strong&gt;&lt;div class="order-meta"&gt;${new Date(o.created).toLocaleString('en-IN')} · ${o.items.length} item(s) · ${money(o.total)}&lt;/div&gt;&lt;div class="status-steps" aria-label="${labels[st]}"&gt;${[0, 1, 2, 3].map(n =&gt; `&lt;span class="step ${n &lt;= st ? 'active' : ''}"&gt;&lt;/span&gt;`).join('')}&lt;/div&gt;&lt;small&gt;${labels[st]} &lt;em&gt;${st &lt; 3 ? '(auto-advances in this demo)' : ''}&lt;/em&gt;&lt;/small&gt;&lt;/div&gt;&lt;div class="order-actions"&gt;&lt;button class="text-button" data-invoice="${o.id}"&gt;View invoice&lt;/button&gt;&lt;/div&gt;&lt;/article&gt;`
+                }
+                ).join('')
+            }
+            function showToast(msg) {
+                const t = $('#toast');
+                t.textContent = msg;
+                t.classList.add('show');
+                setTimeout( () =&gt; t.classList.remove('show'), 2500)
+            }
+            function openCart() {
+                $('#cartPanel').classList.add('open');
+                $('#overlay').classList.add('open');
+                $('#cartPanel').setAttribute('aria-hidden', 'false')
+            }
+            function closeCart() {
+                $('#cartPanel').classList.remove('open');
+                $('#overlay').classList.remove('open');
+                $('#cartPanel').setAttribute('aria-hidden', 'true')
+            }
+            document.addEventListener('click', e =&gt; {
+                const add = e.target.closest('[data-add]');
+                if (add) {
+                    const id = add.dataset.add
+                      , item = cart.find(i =&gt; i.id === id);
+                    item ? item.qty++ : cart.push({
+                        id,
+                        qty: 1
+                    });
+                    renderCart();
+                    showToast('Added to cart');
+                    return
+                }
+                const qty = e.target.closest('[data-qty]');
+                if (qty) {
+                    const item = cart.find(i =&gt; i.id === qty.dataset.id);
+                    item.qty += Number(qty.dataset.qty);
+                    if (item.qty &lt; 1)
+                        cart = cart.filter(i =&gt; i !== item);
+                    renderCart();
+                    return
+                }
+                const inv = e.target.closest('[data-invoice]');
+                if (inv)
+                    showInvoice(inv.dataset.invoice)
+            }
+            );
+            ['search', 'category', 'vendorFilter', 'sort'].forEach(id =&gt; $('#' + id).addEventListener('input', renderProducts));
+            $('#clearFilters').onclick = () =&gt; {
+                $('#search').value = '';
+                $('#category').value = 'all';
+                $('#vendorFilter').value = 'all';
+                $('#sort').value = 'featured';
+                renderProducts()
+            }
+            ;
+            $('#openCart').onclick = openCart;
+            $('#closeCart').onclick = closeCart;
+            $('#overlay').onclick = closeCart;
+            $('#productForm').addEventListener('submit', e =&gt; {
+                e.preventDefault();
+                const d = new FormData(e.target);
+                products.unshift({
+                    id: 'p' + Date.now(),
+                    name: d.get('name'),
+                    price: Number(d.get('price')),
+                    category: d.get('category'),
+                    vendor: d.get('vendor'),
+                    emoji: d.get('emoji') || '🛍️'
+                });
+                save();
+                populateVendors();
+                renderProducts();
+                renderVendors();
+                e.target.reset();
+                showToast('Product added to this browser demo')
+            }
+            );
+            $('#checkoutButton').onclick = () =&gt; {
+                if (cart.length)
+                    $('#checkoutDialog').showModal()
+            }
+            ;
+            $('#checkoutForm').addEventListener('submit', e =&gt; {
+                e.preventDefault();
+                const d = new FormData(e.target)
+                  , items = cart.map(i =&gt; ({
+                    ...products.find(p =&gt; p.id === i.id),
+                    qty: i.qty
+                }));
+                const total = items.reduce( (s, i) =&gt; s + i.price * i.qty, 0);
+                orders.unshift({
+                    id: 'CC-' + String(Date.now()).slice(-6),
+                    created: Date.now(),
+                    customer: d.get('customer'),
+                    address: d.get('address'),
+                    payment: d.get('payment'),
+                    items,
+                    total
+                });
+                cart = [];
+                save();
+                renderCart();
+                renderOrders();
+                closeCart();
+                $('#checkoutDialog').close();
+                e.target.reset();
+                showToast('Simulated order placed successfully')
+            }
+            );
+            function showInvoice(id) {
+                const o = orders.find(x =&gt; x.id === id);
+                $('#invoiceContent').innerHTML = `&lt;div class="invoice-title"&gt;&lt;p class="eyebrow"&gt;DEMO INVOICE&lt;/p&gt;&lt;h2&gt;CampusCart&lt;/h2&gt;&lt;p&gt;${o.id} · ${new Date(o.created).toLocaleDateString('en-IN')}&lt;/p&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Customer:&lt;/strong&gt; ${o.customer}&lt;br&gt;&lt;strong&gt;Delivery:&lt;/strong&gt; ${o.address}&lt;br&gt;&lt;strong&gt;Payment:&lt;/strong&gt; ${o.payment} &lt;mark&gt;simulated&lt;/mark&gt;&lt;/p&gt;&lt;table class="invoice-lines"&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Item&lt;/th&gt;&lt;th&gt;Qty&lt;/th&gt;&lt;th&gt;Amount&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;${o.items.map(i =&gt; `&lt;tr&gt;&lt;td&gt;${i.name}&lt;/td&gt;&lt;td&gt;${i.qty}&lt;/td&gt;&lt;td&gt;${money(i.price * i.qty)}&lt;/td&gt;&lt;/tr&gt;`).join('')}&lt;/tbody&gt;&lt;/table&gt;&lt;p class="invoice-total"&gt;&lt;strong&gt;Total: ${money(o.total)}&lt;/strong&gt;&lt;/p&gt;&lt;p class="dialog-note"&gt;This invoice is a front-end demonstration only; it is not a tax or payment record.&lt;/p&gt;`;
+                $('#invoiceDialog').showModal()
+            }
+            $('#closeInvoice').onclick = () =&gt; $('#invoiceDialog').close();
+            $('#resetDemo').onclick = () =&gt; {
+                if (confirm('Reset products, cart and orders for this browser?')) {
+                    products = [...initialProducts];
+                    cart = [];
+                    orders = [];
+                    save();
+                    populateVendors();
+                    renderProducts();
+                    renderCart();
+                    renderVendors();
+                    renderOrders();
+                    showToast('Demo data reset')
+                }
+            }
+            ;
+            populateVendors();
+            renderProducts();
+            renderCart();
+            renderVendors();
+            renderOrders();
+            setInterval(renderOrders, 5000);
+            
+            
+</code></pre>
+<p class="footer">End of Report 🖊️</p>
+    </section>
+   
+    <script>
+        document.querySelectorAll('.source-listing code').forEach((code) => {
+            const lines = code.textContent.replace(/^\n|\n\s*$/g, '').split('\n');
+            code.textContent = lines.map((line) => line.slice(12)).join('\n');
+        });
+    </script>
+</body>
+
+</html>
